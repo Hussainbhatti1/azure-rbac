@@ -10,6 +10,8 @@ data "azurerm_subscription" "example" {
 resource "azurerm_role_definition" "example_role" {
   name        = "example_role"
   description = "A custom role"
+  scope       = "/subscriptions/${data.azurerm_subscription.example.id}"
+
   permissions {
     actions = [
       "Microsoft.Compute/*",
