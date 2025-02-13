@@ -25,7 +25,7 @@ resource "azurerm_role_definition" "example_role" {
 }
 
 resource "azurerm_role_assignment" "example_assignment" {
-  principal_id        = "29ec2766-fb35-4c65-858f-04237669591d"
+  principal_id        = "f736c733-8a38-458b-931a-c6b7b9289e6e"
   role_definition_name = azurerm_role_definition.example_role.name
   # Role assignment scope: the subscription to which the role is assigned
   scope                = data.azurerm_subscription.example.id # Use the subscription ID directly
