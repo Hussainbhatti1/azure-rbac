@@ -12,6 +12,8 @@ resource "azurerm_role_definition" "example_role" {
     ]
     not_actions = []
   }
+
+  # Add the scope where the role will be assigned
   assignable_scopes = ["/subscriptions/${data.azurerm_subscription.example.id}"]
 }
 
