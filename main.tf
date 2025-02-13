@@ -10,7 +10,7 @@ data "azurerm_subscription" "example" {
 resource "azurerm_role_definition" "example_role" {
   name        = "example_role"
   description = "A custom role"
-  scope       = "/subscriptions/${data.azurerm_subscription.example.id}"
+  scope       = data.azurerm_subscription.example.id # Use the subscription ID directly
 
   permissions {
     actions = [
@@ -21,12 +21,12 @@ resource "azurerm_role_definition" "example_role" {
   }
 
   # Assignable scopes: the subscription where the role can be applied
-  assignable_scopes = ["/subscriptions/${data.azurerm_subscription.example.id}"]
+  assignable_scopes = [data.azurerm_subscription.example.id] # Use the subscription ID directly
 }
 
 resource "azurerm_role_assignment" "example_assignment" {
   principal_id        = "29ec2766-fb35-4c65-858f-04237669591d"
   role_definition_name = azurerm_role_definition.example_role.name
   # Role assignment scope: the subscription to which the role is assigned
-  scope                = "/subscriptions/${data.azurerm_subscription.example.id}"
+  scope                = data.azurerm_subscription.example.id # Use the subscription ID directly
 }
