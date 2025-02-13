@@ -19,7 +19,7 @@ resource "azurerm_role_definition" "example_role" {
 }
 
 resource "azurerm_role_assignment" "example_assignment" {
-  principal_id   = 29ec2766-fb35-4c65-858f-04237669591d
+  principal_id   = "29ec2766-fb35-4c65-858f-04237669591d"
   role_definition_name = azurerm_role_definition.example_role.name
   scope          = "/subscriptions/${var.subscription_id}"
 }
