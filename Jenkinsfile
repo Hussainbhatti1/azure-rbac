@@ -21,14 +21,5 @@ pipeline {
             }
         }
     }
-
-    stage('Post-Deployment Validation') {
-      steps {
-        script {
-          // Implement post-deployment checks (e.g., using Azure CLI or Terraform)
-          sh 'az role assignment list --assignee 29ec2766-fb35-4c65-858f-04237669591d'
-        }
-      }
-    }
   }
 }
